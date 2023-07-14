@@ -1,9 +1,14 @@
 #!/usr/bin/python3
 """Describes the FileStorage class."""
 import json
+import os
 from models.base_model import BaseModel
-from models import user
-from models import city
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class FileStorage:
@@ -29,19 +34,36 @@ class FileStorage:
 
     def save(self):
         """Serialize __objects to the JSON file __file_path."""
-        odict = FileStorage.__objects
-        objdict = {obj: odict[obj].to_dict() for obj in odict.keys()}
-        with open(FileStorage.__file_path, "w") as f:
-            json.dump(objdict, f)
+
+        serialized_objects = {}
+        for key, obj in FileStorage.__objects.items():
+            serialized_objects[key] = obj.to_dict()
+        with open(FileStorage.__file_path, 'w') as f:
+            json.dump(serialized_objects, f)
 
     def reload(self):
         """Deserialize the JSON file __file_path to __objects, if it exists."""
-        try:
-            with open(FileStorage.__file_path) as f:
-                objdict = json.load(f)
-                for o in objdict.values():
-                    cls_name = o["__class__"]
-                    del o["__class__"]
-                    self.new(eval(cls_name)(**o))
-        except FileNotFoundError:
+
+        models_dict = {
+                "BaseModel": BaseModel,
+                "User": User,
+                "State": State,
+                "City": City,
+                "Amenity": Amenity,
+                "Place": Place,
+                "Review": Review
+                }
+
+        if os.path.isfile(FileStorage.__file_path):
             return
+
+            with open(FileStorage.__file_path, 'r') as f:
+                deserialized_objects = json.load(f)
+                FileStorage.__objects = {}
+
+                for key, value in deserialized_objects.items():
+                    class_name = key.split('.')[0]
+                    if class_name in models_dict:
+                        model_class = models_dict[class_name]
+                        instance = model_class(**value)
+                        FileStorage.__objects[key] = instance
