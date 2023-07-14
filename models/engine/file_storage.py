@@ -2,6 +2,8 @@
 """Describes the FileStorage class."""
 import json
 from models.base_model import BaseModel
+from models import user
+from models import city
 
 
 class FileStorage:
@@ -13,6 +15,8 @@ class FileStorage:
     """
     __file_path = "file.json"
     __objects = {}
+
+
 
     def all(self):
         """Return the dictionary __objects."""
