@@ -2,8 +2,6 @@
 """
     unittest for base model
 """
-import os
-import models
 import unittest
 from datetime import datetime
 from models import base_model
