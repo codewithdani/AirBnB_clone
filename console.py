@@ -156,7 +156,7 @@ class HBNBCommand(cmd.Cmd):
                 count += 1
         print(count)
 
-   def do_update(self, arg):
+    def do_update(self, arg):
         """Usage: update <class> <id> <attribute_name> <attribute_value> or
        <class>.update(<id>, <attribute_name>, <attribute_value>) or
        <class>.update(<id>, <dictionary>)
