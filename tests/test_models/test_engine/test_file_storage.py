@@ -6,17 +6,16 @@ import os
 from models.engine import file_storage
 from models.engine.file_storage import FileStorage
 
+
 class TestFileStorage(unittest.TestCase):
     """TestFileStorage: set of tests for filestorage
     Args:
         unittest: python testing module
     """
 
-
     def setUp(self):
         """ prep necessary data """
         self.data = FileStorage()
-
 
     def test_module_doc(self):
         """ checks for module docs """
@@ -31,9 +30,7 @@ class TestFileStorage(unittest.TestCase):
         for method in dir(self.data):
             self.assertTrue(len(method) > 1)
 
-
     def test_initialization(self):
         """ checks for class initialization """
         obj = self.data
         self.assertIsInstance(obj, FileStorage)
-
