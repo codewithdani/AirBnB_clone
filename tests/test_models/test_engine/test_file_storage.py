@@ -79,3 +79,8 @@ class TestFileStorage(unittest.TestCase):
         for key in my_dict2:
             key2 = key
         self.assertEqual(my_dict1[key1].to_dict(), my_dict2[key2].to_dict())
+
+
+
+if __name__ == "__main__":
+    unittest.main()
