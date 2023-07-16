@@ -39,7 +39,7 @@ class BaseModel():
         with the key/value pair __class__ representing
         the class name of the object.
         """
-        rdict = self.__dict__.copy()
+        rdict = dict(self.__dict__)
         rdict["created_at"] = self.created_at.isoformat()
         rdict["updated_at"] = self.updated_at.isoformat()
         rdict["__class__"] = self.__class__.__name__
