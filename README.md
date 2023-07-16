@@ -8,3 +8,9 @@ The console is a command interpreter to manage objects abstraction between objec
    - do operations on objects
    - delete an object
 
+# usage (interactive mode): ./console.py
+
+# non-interactive mode : echo "" ./console.oy
+
+
+
