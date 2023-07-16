@@ -7,6 +7,7 @@ from datetime import datetime
 from models import base_model
 from models.base_model import BaseModel
 
+
 class TestBaseModel(unittest.TestCase):
     """TestBaseModels: performs test on basemodel
     Args:
@@ -30,11 +31,9 @@ class TestBaseModel(unittest.TestCase):
         """ checks for correct and unique uuid """
         first = BaseModel()
         second = BaseModel()
-        
         self.assertNotEqual(first.id, second.id)
         self.assertTrue(type(first.id) == str)
         self.assertTrue(type(second.id) == str)
-
 
     def test_datetime_type(self):
         """ checks for time type """
@@ -43,7 +42,6 @@ class TestBaseModel(unittest.TestCase):
 
         self.assertTrue(type(first.created_at) == datetime)
         self.assertTrue(type(first.updated_at) == datetime)
-
 
     def test_save_method(self):
         """ checks for save method """
