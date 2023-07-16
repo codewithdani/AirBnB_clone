@@ -68,6 +68,19 @@ class TestBaseModel(unittest.TestCase):
         obj = BaseModel()
         self.assertIsInstance(obj, BaseModel)
 
+    def test_str_representation(self):
+        """ checks for str method """
+        dt = datetime.today()
+        dt_repr = repr(dt)
+        bm = BaseModel()
+        bm.id = "123456"
+        bm.created_at = bm.updated_at = dt
+        bmstr = bm.__str__()
+        self.assertIn("[BaseModel] (123456)", bmstr)
+        self.assertIn("'id': '123456'", bmstr)
+        self.assertIn("'created_at': " + dt_repr, bmstr)
+        self.assertIn("'updated_at': " + dt_repr, bmstr)
+
 
 if __name__ == '__main__':
     unittest.main()
