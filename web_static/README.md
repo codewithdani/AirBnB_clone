@@ -73,5 +73,4 @@ What you should learn from this project:
 ---
 
 ## Author :fountain_pen:
-* [Daniel Giday](https://github.com/codewithdani/) - @codewithdani
-* **Ayomide Suara** - [aysuarex](https://github.com/aysuarex)
+* **Daniel Giday** - [codewithdani](https://github.com/codewithdani)
