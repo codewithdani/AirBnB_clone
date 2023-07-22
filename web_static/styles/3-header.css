@@ -2,14 +2,14 @@ header {
     background-color: white;
     height: 70px;
     width: 100%;
-    border-bottom: 1px solid #CCCCCC;
-    display: flex;
-    align-items: center;
+    border-bottom: 1px solid #CCCCCC;/* A solid border provides a clear visual separation without any distractions*/
+    display: flex;/* To use flexbox for aligning the logo */
+    align-items: center;/* Center the logo vertically */
 }
 
 header .logo {
-    width: 142px;
+    width: 140px;
     height: 60px;
-    background: url("../images/logo.png") no-repeat center;
+    background: url("../images/logo.png") no-repeat center;/*ensures that the image is not repeated and center centers the image within the logo container*/
     padding-left: 20px;
 }
