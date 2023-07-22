@@ -5,7 +5,7 @@ header {
     border-bottom: 1px solid #CCCCCC;/* A solid border provides a clear visual separation without any distractions*/
     display: flex;/* To use flexbox for aligning the logo */
     align-items: center;/* Center the logo vertically */
-}
+    }
 
 header .logo {
     width: 140px;
